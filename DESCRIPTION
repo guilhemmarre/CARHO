@@ -1,0 +1,18 @@
+Package: CARHO
+Type: Package
+Title: The Title of the Project
+Version: 0.0.0.9000
+Authors@R: c(
+    person(given   = "Guilhem",
+           family  = "Marre",
+           role    = c("aut", "cre", "cph"),
+           email   = "guilhem.marre@andromede-ocean.com",
+           comment = c(ORCID = "{{orcid}}")))
+Description: A paragraph providing a full description of the project (on 
+    several lines...)
+URL: https://github.com/guilhemmarre/CARHO
+BugReports: https://github.com/guilhemmarre/CARHO/issues
+License: GPL (>= 2)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
