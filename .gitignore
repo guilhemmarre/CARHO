@@ -16,6 +16,15 @@
 # R Environment Variables ----
 .Renviron
 
+# GIS heavy files
+data/SIG/*
+
+# Outputs
+outputs/*
+
+# Figures
+figures/*
+
 # User-specific files ----
 README.html
 inst/doc

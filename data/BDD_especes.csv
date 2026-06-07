@@ -1,0 +1,260 @@
+ID_code;id_name;Sartoretto_TS_group;Sartoretto_TS_group_etendu;Sartoretto_CS_group;Sartoretto_CS_group_etendu;Taxon_level;ID_major_category;major_category;gender_name;Species;Gender;Family;Order;Class;Phylum;Not_concerned;major_builders_old;Builders_all;Builders_nobryo;LSP;PSP;MSP;AXSP;COSP
+ACAC;Acanthella acuta;4;4;basal;basal;Species;S;Sponge;Acanthella;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ACET;Acetabularia acetabulum;;;;intermediate;Species;GM;Green macroalgae;Acetabularia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ACTI;Actiniaria;;;basal;basal;Order;A;Actiniaria;NC;0;0;0;4;0;0;0;0;0;0;0;0;0;0;0
+ADC;Adeonella calveti;4;4;intermediate;intermediate;Species;EBR;Erected bryozoan;Adeonella;1;0;0;0;0;0;0;0;1;0;0;0;0;0;0
+AGOR;Agelas oroides;3;3;upper;upper;Species;S;Sponge;Agelas;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+AIMU;Aiptasia mutabilis;;;basal;basal;Species;A;Actiniaria;Aiptasia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ALAC;Alcyonium acaule;2;2;intermediate;intermediate;Species;AL;Alcyonaria;Alcyonium;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ALC;Alcynonarian;2;2;intermediate;intermediate;Order;AL;Alcyonaria;NC;0;0;0;4;0;0;0;0;0;0;0;0;0;0;0
+ALCO;Alcyonium corraloides;2;2;basal;basal;Species;AL;Alcyonaria;Alcyonium;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ALDI;Alcyonium digitatum;2;2;intermediate;intermediate;Species;AL;Alcyonaria;Alcyonium;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ALGL;Alcyonium glomeratum;2;2;intermediate;intermediate;Species;AL;Alcyonaria;Alcyonium;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ALMI;Alicia mirabilis;;;upper;upper;Species;A;Actiniaria;Alicia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+AMSP;Amphiroa sp;;;intermediate;intermediate;Gender;EMA;Erected red macroalgae;Amphiroa;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+ANIN;Antho inconstans;;;basal;basal;Species;S;Sponge;Antho;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ANME;Antedon mediterranea;;;;basal;Species;CR;Crinoidian;Antedon;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ANSU;Antipathes subpinnata;;;upper;upper;Species;ATP;Antipatharia;Antipathes;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ANTH;Antipatharia;;;upper;upper;Species;ATP;Antipatharia;NC;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+APAE;Aplysina aerophoba;;4;intermediate;intermediate;Species;S;Sponge;Aplysina;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+APCA;Aplysina cavernicola;4;4;intermediate;intermediate;Species;S;Sponge;Aplysina;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+APLI;Aplidium sp;4;4;basal;basal;Gender;AS;Actiniaria;Aplidium;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+APRO;Aplysilla rosea;;4;basal;basal;Species;S;Sponge;Aplysilla;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+APSP;Aplysilla sulfurea;4;4;basal;basal;Species;S;Sponge;Aplysilla;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ARLI;Arbacia lixula;;;;intermediate;Species;E;Echinids;Arbacia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ASAS;Ascidiella aspersa;;4;intermediate;intermediate;Species;AS;Ascidians;Ascidiella;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ASCA;Astroides calycularis;;2;;intermediate;Species;SCL;Scleractinia;Astroides;1;0;0;0;0;0;0;0;1;1;0;0;0;0;0
+ASCI;Ascidians;;4;intermediate;intermediate;Family;AS;Ascidians;NC;0;0;3;0;0;0;0;0;0;0;0;0;0;0;0
+ASME;Ascidia mentula;;4;intermediate;intermediate;Species;AS;Ascidians;Ascidia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ASSP;Asparagopsis sp;;;intermediate;intermediate;Gender;EMA;Erected red macroalgae;Asparagopsis;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+ASTE;Asterids;;;;basal;Class;AST;Asterids;NC;0;0;0;0;5;0;0;0;0;0;0;0;0;0;0
+ASTM;Astropartus mediterraneus;;;;basal;Species;O;Ophiuroids;Astropartus;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ASVI;Ascidia virginea;;4;intermediate;intermediate;Species;AS;Ascidians;Ascidia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+AXAU;Axinyssa aurantiaca;;;basal;basal;Species;S;Sponge;Axinyssa;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+AXDA;Axinella damicornis;2;2;upper;upper;Species;S;Sponge;Axinella;1;0;0;0;0;0;0;0;0;0;0;0;0;1;0
+AXDI;Axinella dissimilaris;;;upper;upper;Species;S;Sponge;Axinella;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+AXPO;Axinella polypoides;;;upper;upper;Species;S;Sponge;Axinella;1;0;0;0;0;0;0;0;0;0;0;0;0;1;0
+AXSP;Axinella sp;;;upper;upper;Gender;S;Sponge;Axinella;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+AXVA;Axinella vaceleti;;;upper;upper;Species;S;Sponge;Axinella;1;0;0;0;0;0;0;0;0;0;0;0;0;1;0
+AXVE;Axinella verrucosa;2;2;upper;upper;Species;S;Sponge;Axinella;1;0;0;0;0;0;0;0;0;0;0;0;0;1;0
+BAEU;Balanophyllia europaea;;2;intermediate;intermediate;Species;SCL;Scleractinia;Balanophyllia;1;0;0;0;0;0;0;0;1;1;0;0;0;0;0
+BIVO;Bispira volutacornis;;;basal;basal;Species;W;Sedentary worms;Bispira;1;0;0;0;0;0;0;0;1;0;0;0;0;0;0
+BMAC;Brown macroalgae;;;;intermediate;Class;BM;Brown macroalgae;NC;0;0;0;0;5;0;0;0;0;0;0;0;0;0;0
+BOVI;Bonellia viridis;;;;basal;Species;W;Sedentary worms;Bonellia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+BRSP;Bryopsis sp;;;;basal;Gender;GM;Green macroalgae;Bryopsis;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+C;Crevice;;;;;NC;SPR;Sludge, pavement, rubble, sand;NC;0;0;0;0;0;0;NC;0;0;0;0;0;0;0;0
+CAIN;Caryophyllia inornata;2;2;basal;basal;Species;SCL;Scleractinia;Caryophyllia;1;0;0;0;0;0;0;1;1;1;0;0;0;0;0
+CAMO;Cacospongia mollior;2;2;basal;basal;Species;S;Sponge;Cacospongia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CARA;Caulerpa racemosa;;;;basal;Species;GM;Green macroalgae;Caulerpa;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CASC;Cacospongia scalaris;3;3;basal;basal;Species;S;Sponge;Cacospongia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CASM;Caryophyllia smithii;2;2;basal;basal;Species;SCL;Scleractinia;Caryophyllia;1;0;0;0;0;0;0;1;1;1;0;0;0;0;0
+CATA;Caulerpa taxifolia;;;;intermediate;Species;GM;Green macroalgae;Caulerpa;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CAVE;Callogorgia verticillata;;;;upper;Species;G;Gorgonian;Callogorgia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CEL;Centrostephanus longispinus;;;;upper;Species;E;Echinids;Centrostephanus;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CELL;Cellaria sp;;;intermediate;intermediate;Gender;EBR;Erected bryozoan;Cellaria;0;2;0;0;0;0;0;0;1;0;0;0;0;0;0
+CERI;Ceriantharia;;;;intermediate;Order;C;Ceriantharia;NC;0;0;0;4;0;0;0;0;0;0;0;0;0;0;0
+CHNU;Chondrilla nucula;;;basal;basal;Species;S;Sponge;Chondrilla;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CHRE;Chondrosia reniformis;1;1;basal;basal;Species;S;Sponge;Chondrosia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CHTE;Chartella tenella;;;intermediate;intermediate;Species;EBR;Erected bryozoan;Chartella;1;0;0;0;0;0;0;0;1;0;0;0;0;0;0
+CHVE;Chrysymenia ventricosa;;;intermediate;intermediate;Species;EMA;Erected red macroalgae;Chrysymenia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CICI;Cidaris cidaris;;;;intermediate;Species;E;Echinids;Cidaris;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CIED;Ciona edwardsi;;4;intermediate;intermediate;Species;AS;Ascidians;Ciona;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CIIN;Ciona intestinalis;;4;intermediate;intermediate;Species;AS;Ascidians;Ciona;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CLAD;Cladophora sp;;;;basal;Gender;GM;Green macroalgae;Cladophora;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+CLCE;Cliona celata;1;1;basal;basal;Species;S;Sponge;Cliona;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CLCL;Clathrina clathrus;;;basal;basal;Species;S;Sponge;Clathrina;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CLDE;Clavelina dellavallei;4;4;intermediate;intermediate;Species;AS;Ascidians;Clavelina;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CLIO;Cliona sp;1;1;basal;basal;Gender;S;Sponge;Cliona;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+CLLE;Clavelina lepadoformis;4;4;intermediate;intermediate;Species;AS;Ascidians;Clavelina;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CLPI;Cladocora caespitosa;;2;basal;basal;Species;SCL;Scleractinia;Cladocora;1;0;0;0;0;0;0;0;1;1;0;0;0;0;0
+CLSP;Clathrina sp;;;basal;basal;Gender;S;Sponge;Clathrina;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+CLVI;Cliona viridis;1;1;basal;basal;Species;S;Sponge;Cliona;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+COBU;Codium bursa;;;;basal;Species;GM;Green macroalgae;Codium;1;0;0;0;0;0;0;0;0;0;0;0;0;0;1
+COCA;Corticium candelabrum;;;basal;basal;Species;S;Sponge;Corticium;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+COCO;Codium coralloides;3;3;;basal;Species;GM;Green macroalgae;Codium;1;0;0;0;0;0;0;0;0;0;0;0;0;0;1
+COEF;Codium effusum;3;3;;basal;Species;GM;Green macroalgae;Codium;1;0;0;0;0;0;0;0;0;0;0;0;0;0;1
+COEL;Corallina elongata;;;intermediate;intermediate;Species;EMA;Erected red macroalgae;Corallina;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CORA;Non identified corallinacea;1;1;basal;basal;Class;CMA;Encrusting red macroalgae;NC;0;0;0;0;5;0;0;1;1;1;0;0;0;0;0
+CORC;Cornularia cornucopiae;;;;basal;Species;ST;Stolonifera;Cornularia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CORM;Corallimorpharia;;;;intermediate;Order;CO;Corallimorpharia;NC;0;0;0;4;0;0;0;0;0;0;0;0;0;0;0
+CORU;Corallium rubrum;2;2;upper;upper;Species;G;Gorgonian;Corallium;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+COVE;Codium vermilara;;3;;intermediate;Species;GM;Green macroalgae;Codium;1;0;0;0;0;0;0;0;0;0;0;0;0;0;1
+COVI;Corynactis viridis;;;;basal;Species;CO;Corallimorpharia;Corynactis;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CRAM;Crambe crambe;3;3;basal;basal;Species;S;Sponge;Crambe;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CRCR;Cribrinopsis crassa;;;basal;basal;Species;A;Actiniaria;Cribrinopsis;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CREL;Crella elegans;;4;intermediate;intermediate;Species;S;Sponge;Crella;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CRIN;Crinoidian;;;;basal;Class;CR;Crinoidian;NC;0;0;0;0;5;0;0;0;0;0;0;0;0;0;0
+CRMA;Encrusting red macroalgae;1;1;basal;basal;Class;CMA;Encrusting red macroalgae;NC;0;0;0;0;5;0;0;1;1;1;0;0;0;0;0
+CRPU;Crella pulvinar;4;4;basal;basal;Species;S;Sponge;Crella;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CRSP;Crisia sp;;;intermediate;intermediate;Gender;EBR;Erected bryozoan;Crisia;0;2;0;0;0;0;0;0;1;0;0;0;0;0;0
+CRT;Crambe tailliezi;3;3;basal;basal;Species;S;Sponge;Crambe;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CYNO;Cymodocea nodosa;;;;upper;Species;PH;Phanerogam;Cymodocea;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CYSP;Cystoseira sp;;;;upper;Gender;BM;Brown macroalgae;Cystoseira;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+CYZO;Cystoseira zosteroides;;;;upper;Species;BM;Brown macroalgae;Cystoseira;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+D;Sand;;;;;NC;SPR;Sludge, pavement, rubble, sand;NC;0;0;0;0;0;0;NC;0;0;0;0;0;0;0;0
+DECO;Dendrophyllia cornigera;;2;intermediate;intermediate;Species;SCL;Scleractinia;Dendrophyllia;1;0;0;0;0;0;0;0;1;1;0;0;0;0;0
+DELE;Dendroxea lenis;;;basal;basal;Species;S;Sponge;Dendroxea;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+DESA;Dentiporella sardonica;4;4;intermediate;intermediate;Species;EBR;Erected bryozoan;Dentiporella;1;0;0;0;0;0;0;0;1;0;0;0;0;0;0
+DIDE;Didemnium sp;;4;intermediate;intermediate;Gender;AS;Ascidians;Didemnium;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+DIDI;Dictyota dichotoma;;;;upper;Species;BM;Brown macroalgae;Dictyota;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+DIFA;Dictyota fasciola;;;;upper;NA;BM;Brown macroalgae;Dictyota;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+DIIM;Dictyota implexa;;;;upper;Species;BM;Brown macroalgae;Dictyota;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+DILI;Diplosoma listerianum;;4;intermediate;intermediate;Species;AS;Ascidians;Diplosoma;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+DIPO;Dictyopteris polypodioides;;;;upper;Species;BM;Brown macroalgae;Dictyopteris;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+DIRO;Distaplia rosea;;4;intermediate;intermediate;Species;AS;Ascidians;Distaplia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+DISP;Dictyonella sp;;;basal;basal;Gender;S;Sponge;Dictyonella;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+DIVE;Diporula verrucosa;;;intermediate;intermediate;Species;EBR;Erected bryozoan;Diporula;1;0;0;0;0;0;0;0;1;0;0;0;0;0;0
+DIVI;Diazona violacea;;4;intermediate;intermediate;Species;AS;Ascidians;Diazona;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+DUVE;Dudresnaya verticillata;;;intermediate;intermediate;Species;EMA;Erected red macroalgae;Dudresnaya;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+DYAV;Dysidea avara;1;1;basal;basal;Species;S;Sponge;Dysidea;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+DYFR;Dysidea fragilis;1;1;basal;basal;Species;S;Sponge;Dysidea;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ECBR;Encrusting bryozoan;2;2;basal;basal;Phylum;CBR;Encrusting bryozoan;NC;0;0;0;0;0;6;0;1;1;0;0;0;0;0;0
+ECH;Echinids;;;;intermediate;Phylum;E;Echinids;NC;0;0;0;0;0;6;0;0;0;0;0;0;0;0;0
+ECME;Echinus melo;;;;intermediate;Species;E;Echinids;Echinus;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ECTH;Ecteinascidia herdmani;;4;intermediate;intermediate;Species;AS;Ascidians;Ecteinascidia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ENS;Non identified encrusting sponge;;;basal;basal;Phylum;S;Sponge;NC;0;0;0;0;0;6;0;0;0;0;0;0;0;0;0
+EPAR;Epizoanthus arenaceus;;;basal;basal;Species;Z;Zoantharia;Epizoanthus;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ERBR;Erected bryozoan;;;intermediate;intermediate;Phylum;EBR;Erected bryozoan;NC;0;0;0;0;0;6;0;0;1;0;0;0;0;0;0
+ERMA;Erected red macroalgae;;;intermediate;intermediate;Class;EMA;Erected red macroalgae;NC;0;0;0;0;5;0;0;0;0;0;0;0;0;0;0
+EUCA;Eunicella cavolini;2;2;upper;upper;Species;G;Gorgonian;Eunicella;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+EUSI;Eunicella singularis;;2;upper;upper;Species;G;Gorgonian;Eunicella;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+EUSP;Eudendrium sp;;;intermediate;intermediate;Gender;H;Hydroid;Eudendrium;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+EUVE;Eunicella verrucosa;;2;upper;upper;Species;G;Gorgonian;Eunicella;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+FARE;Fauchea repens;;;intermediate;intermediate;Species;EMA;Erected red macroalgae;Fauchea;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+FILB;Filamentous brown algae;;;;basal;Class;BM;Brown macroalgae;NC;0;0;0;0;5;0;0;0;0;0;0;0;0;0;0
+FILG;Filamentous green algae;;;;basal;Phylum;GM;Green macroalgae;NC;0;0;0;0;0;6;0;0;0;0;0;0;0;0;0
+FILR;Filamentous red algae;;;intermediate;intermediate;Class;EMA;Erected red macroalgae;NC;0;0;0;0;5;0;0;0;0;0;0;0;0;0;0
+FISA;Filograna or Salmacina sp;;;;intermediate;Gender;W;Sedentary worms;Filograna;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+FLPE;Flabellia petiolata;3;3;;intermediate;Species;GM;Green macroalgae;Flabellia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+FORA;Foraminifera;;;basal;basal;Phylum;F;Foraminifera;NC;0;0;0;0;0;6;0;0;0;0;0;0;0;0;0
+FRVE;Frondipora verrucosa;1;1;intermediate;intermediate;Species;EBR;Erected bryozoan;Frondipora;1;0;0;0;0;0;0;0;1;0;0;0;0;0;0
+GMAC;Green macroalgae;;;;intermediate;Phylum;GM;Green macroalgae;NC;0;0;0;0;0;6;0;0;0;0;0;0;0;0;0
+GORG;Gorgonian;;2;upper;upper;Family;G;Gorgonian;NC;0;0;3;0;0;0;0;0;0;0;0;0;0;0;0
+GULA;Guancha lacunosa;;;basal;basal;Species;S;Sponge;Guancha;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+HALA;Halymenia latifolia;;;intermediate;intermediate;Species;EMA;Erected red macroalgae;Halymenia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+HALI;Haliclona Sp;2;2;intermediate;intermediate;Gender;S;Sponge;Haliclona;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+HAME;Haliclona mediterranea;2;2;intermediate;intermediate;Species;S;Sponge;Haliclona;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+HAPA;Halocynthia papillosa;4;4;intermediate;intermediate;Species;AS;Ascidians;Halocynthia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+HAPO;Haliclona poecillastroides;;2;intermediate;intermediate;Species;S;Sponge;Haliclona;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+HATU;Halimeda tuna;2;2;;intermediate;Species;GM;Green macroalgae;Halimeda;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+HECO;Hemimycale columella;2;2;basal;basal;Species;S;Sponge;Hemimycale;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+HEPR;Hexadella pruvoti;4;4;basal;basal;Species;S;Sponge;Hexadella;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+HERA;Hexadella racovitzai;4;4;basal;basal;Species;S;Sponge;Hexadella;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+HODU;Hoplangia durotrix;3;3;basal;basal;Species;SCL;Scleractinia;Hoplangia;1;0;0;0;0;0;0;1;1;1;0;0;0;0;0
+HOFR;Hornera frondiculata;;;intermediate;intermediate;Species;EBR;Erected bryozoan;Hornera;1;0;0;0;0;0;0;0;1;0;0;0;0;0;0
+HY;Hydrozoa;;;intermediate;intermediate;Phylum;H;Hydroid;NC;0;0;0;0;0;6;0;0;0;0;0;0;0;0;0
+IDAT;Idmidronea atlantica;;;intermediate;intermediate;Species;EBR;Erected bryozoan;Idmidronea;1;0;0;0;0;0;0;0;1;0;0;0;0;0;0
+IROR;Ircinia oros;2;2;basal;basal;Species;S;Sponge;Ircinia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+IRVA;Ircinia variabilis;2;2;basal;basal;Species;S;Sponge;Ircinia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+JARU;Jania rubens;;;intermediate;intermediate;Species;EMA;Erected red macroalgae;Jania;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+KAPA;Kallymenia patens;;;intermediate;intermediate;Species;EMA;Erected red macroalgae;Kallymenia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+LARO;Laminaria rodriguezi;;;;upper;Species;BM;Brown macroalgae;Laminaria;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+LEPR;Leptopsammia pruvoti;3;3;basal;basal;Species;SCL;Scleractinia;Leptopsammia;1;0;0;0;0;0;0;1;1;1;0;0;0;0;0
+LESA;Leptogorgia sarmentosa;2;2;upper;upper;Species;G;Gorgonian;Leptogorgia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+LICA;Lithophyllum cabiochae;3;3;basal;basal;Species;CMA;Encrusting red macroalgae;Lithophyllum;1;0;0;0;0;0;0;1;1;1;1;0;0;0;0
+LICO;Lithothamnion corallioides;1;1;basal;basal;Species;CMA;Encrusting red macroalgae;Lithothamnion;1;0;0;0;0;0;0;1;1;1;0;0;0;0;0
+LIIN;Lithophyllum incrustans;1;1;basal;basal;Species;CMA;Encrusting red macroalgae;Lithophyllum;1;0;0;0;0;0;0;1;1;1;1;0;0;0;0
+LISP;Lithophyllum sp;3;3;basal;basal;Gender;CMA;Encrusting red macroalgae;Lithophyllum;0;2;0;0;0;0;0;1;1;1;1;0;0;0;0
+LIST;Lithophyllum stictaeforme;1;1;basal;basal;Species;CMA;Encrusting red macroalgae;Lithophyllum;1;0;0;0;0;0;0;1;1;1;1;0;0;0;0
+MAED;Maasella edwardsii;;;basal;basal;Species;AL;Alcyonaria;Maasella;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+MAPH;Madracis pharensis;;2;basal;basal;Species;SCL;Scleractinia;Madracis;1;0;0;0;0;0;0;0;1;1;0;0;0;0;0
+MAS;Non identified massive sponge;;;intermediate;intermediate;Phylum;S;Sponge;NC;0;0;0;0;0;6;0;0;0;0;0;0;0;0;0
+MEAL;Mesophyllum alternans;1;1;basal;basal;Species;CMA;Encrusting red macroalgae;Mesophyllum;1;0;0;0;0;0;0;1;1;1;0;0;1;0;0
+MEEX;Mesophyllum expansum;3;3;basal;basal;Species;CMA;Encrusting red macroalgae;Mesophyllum;1;0;0;0;0;0;0;1;1;1;0;0;1;0;0
+MESP;Mesophyllum sp;1;1;basal;basal;Gender;CMA;Encrusting red macroalgae;Mesophyllum;0;2;0;0;0;0;0;1;1;1;0;0;1;0;0
+MIMI;Miniacina miniacea;;;basal;basal;Species;F;Foraminifera;Miniacina;1;0;0;0;0;0;0;1;1;1;0;0;0;0;0
+MIPO;Microcosmus polymorphus;;4;intermediate;intermediate;Species;AS;Ascidians;Microcosmus;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+MISA;Microcosmus sabatieri;;4;intermediate;intermediate;Species;AS;Ascidians;Microcosmus;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+MYIN;Myxilla incrustans;;;basal;basal;Species;S;Sponge;Myxilla;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+MYRO;Myxilla rosacea;;;basal;basal;Species;S;Sponge;Myxilla;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+MYT;Myriapora truncata;1;1;intermediate;intermediate;Species;EBR;Erected bryozoan;Myriapora;1;0;0;0;0;0;0;1;1;0;0;0;0;0;0
+NEC;Necrosis;;;;;NC;NC;NC;NC;0;0;0;0;0;0;NC;0;0;0;0;0;0;0;0
+NEDU;Nemastoma dumontioides;;;intermediate;intermediate;Species;EMA;Erected red macroalgae;Nemastoma;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+NEMA;Neogoniolithon mamillosum;1;1;basal;basal;Species;CMA;Encrusting red macroalgae;Neogoniolithon;1;0;0;0;0;0;0;1;1;1;0;0;0;0;0
+NOTES;NOTES;;;;;NC;NC;NC;NC;0;0;0;0;0;0;NC;0;0;0;0;0;0;0;0
+OL;Other live;;;;;NC;O;Other;Other;0;0;0;0;0;0;NC;0;0;0;0;0;0;0;0
+ONL;Other non live;;;;;NC;TWS;Tape, wand, shadow;NC;0;0;0;0;0;0;NC;0;0;0;0;0;0;0;0
+OPHI;Ophidiaster ophidianus;;;;basal;Species;AST;Asterids;Ophidiaster;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+OSSP;Oscarella sp;4;4;basal;basal;Gender;S;Sponge;Oscarella;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+OSVO;Osmundaria volubilis;;;intermediate;intermediate;Species;EMA;Erected red macroalgae;Osmundaria;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+P;Pavement;;;;;NC;SPR;Sludge, pavement, rubble, sand;NC;0;0;0;0;0;0;NC;0;0;0;0;0;0;0;0
+PAAX;Parazoanthus axinellae;;;basal;basal;Species;Z;Zoantharia;Parazoanthus;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+PACL;Paramuricea clavata;2;2;upper;upper;Species;G;Gorgonian;Paramuricea;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+PACR;Palmophyllum crassum;3;3;;basal;Species;GM;Green macroalgae;Palmophyllum;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+PALI;Paracentrotus lividus;;;;intermediate;Species;E;Echinids;Paracentrotus ;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+PAMA;Paramuricea macrospina;;2;upper;upper;Species;G;Gorgonian;Paramuricea;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+PAPA;Padinia pavonica;;;;intermediate;Species;BM;Brown macroalgae;Padinia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+PCSP;Encrusting Peyssonnelia sp;3;3;basal;basal;Gender;CMA;Encrusting red macroalgae;Peyssonnelia;0;2;0;0;0;0;0;1;1;1;0;1;0;0;0
+PEF;Pentapora fascialis;;;intermediate;intermediate;Species;EBR;Erected bryozoan;Pentapora;1;0;0;0;0;0;0;1;1;0;0;0;0;0;0
+PEFI;Petrosia ficiformis;3;3;basal;basal;Species;S;Sponge;Petrosia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+PEN;Pennatularian;;;;upper;Family;P;Pennatularian;NC;0;0;3;0;0;0;0;0;0;0;0;0;0;0;0
+PEPO;Peyssonnelia polymorpha;3;3;basal;basal;Species;CMA;Encrusting red macroalgae;Peyssonnelia;1;0;0;0;0;0;0;1;1;1;0;1;0;0;0
+PERO;Peyssonnelia rosa-marina;3;3;basal;basal;Species;CMA;Encrusting red macroalgae;Peyssonnelia;1;0;0;0;0;0;0;1;1;1;0;1;0;0;0
+PESP;Erected Peyssonnelia sp;3;3;basal;basal;Gender;CMA;Encrusting red macroalgae;Peyssonnelia;0;2;0;0;0;0;0;1;1;1;0;1;0;0;0
+PESQ;Peyssonnelia squamaria;3;3;basal;basal;Species;CMA;Encrusting red macroalgae;Peyssonnelia;1;0;0;0;0;0;0;1;1;1;0;1;0;0;0
+PHAN;Phanerogam;;;;upper;Species;PH;Phanerogam;NC;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+PHCA;Phymatolithon calcareum;1;1;basal;basal;Species;CMA;Encrusting red macroalgae;Phymatolithon;1;0;0;0;0;0;0;1;1;1;0;0;0;0;0
+PHFI;Phorbas fictitius;;2;basal;basal;Species;S;Sponge;Phorbas;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+PHFU;Phallusia fumigata;;4;intermediate;intermediate;Species;AS;Ascidians;Phallusia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+PHLE;Phymatolithon lenormandii;1;1;basal;basal;Species;CMA;Encrusting red macroalgae;Phymatolithon;1;0;0;0;0;0;0;0;1;1;0;0;0;0;0
+PHMA;Phallusia mamillata;;4;intermediate;intermediate;Species;AS;Ascidians;Phallusia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+PHMO;Phyllangia mouchezii;;2;basal;basal;NA;SCL;Scleractinia;Phyllangia;1;0;0;0;0;0;0;0;1;1;0;0;0;0;0
+PHON;Phoronidian;;;;basal;Phylum;PHO;Phoronidian;NC;0;0;0;0;0;6;0;0;0;0;0;0;0;0;0
+PHOR;Phoronis sp;;;;basal;Gender;PHO;Phoronidian;Phoronis;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+PHTE;Phorbas tenacior;2;2;basal;basal;Species;S;Sponge;Phorbas;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+PHTO;Phorbas topsenti;;2;basal;basal;Species;S;Sponge;Phorbas;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+PHYL;Phyllariopsis sp;;;;upper;Gender;BM;Brown macroalgae;Phyllariopsis;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+PLSP;Pleraplysilla spinifera;4;4;basal;basal;Species;S;Sponge;Pleraplysilla;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+POAU;Polyclinum aurantium;4;4;intermediate;intermediate;Species;AS;Ascidians;Polyclinum;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+POCO;Poecillastra compressa;;;;intermediate;Species;S;Sponge;Poecillastra;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+POLA;Polysyncraton lacazei;;4;intermediate;intermediate;NA;AS;Ascidians;Polysyncraton;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+POLC;Polycitor sp;;4;intermediate;intermediate;Gender;AS;Ascidians;Polycitor;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+POLD;Polydora sp;;;;basal;Gender;W;Sedentary worms;Polydora;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+POMU;Polycyathus muellerae;;2;basal;basal;Species;SCL;Scleractinia;Polycyathus;1;0;0;0;0;0;0;0;1;1;0;0;0;0;0
+POOC;Posidonia oceanica;;;;upper;Species;PH;Phanerogam;Posidonia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+PROT;Protula sp;;;;basal;Gender;W;Sedentary worms;Protula;0;2;0;0;0;0;0;0;1;1;0;0;0;0;0
+PYCL;Pycnoclavella sp;4;4;intermediate;intermediate;Gender;AS;Ascidians;Pycnoclavella;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+R;Rubble;;;;;NC;SPR;Sludge, pavement, rubble, sand;NC;0;0;0;0;0;0;NC;0;0;0;0;0;0;0;0
+RAAC;Raspaciona aculeata;;;basal;basal;Species;S;Sponge;Raspaciona;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+REFU;Reniera fulva;;;basal;basal;Species;S;Sponge;Reniera;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+RESP;Reteporella sp;2;2;intermediate;intermediate;Gender;EBR;Erected bryozoan;Reteporella;0;2;0;0;0;0;0;0;1;0;0;0;0;0;0
+REVI;Reptadeonella violacea;2;2;basal;basal;Species;CBR;Encrusting bryozoan;Reptadeonella;1;0;0;0;0;0;0;1;1;0;0;0;0;0;0
+RHNE;Rhopalaea neapolitana;;4;intermediate;intermediate;Species;AS;Ascidians;Rhopalaea;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+S;Sludge;;;;;NC;SPR;Sludge, pavement, rubble, sand;NC;0;0;0;0;0;0;NC;0;0;0;0;0;0;0;0
+SAEL;Sagartia elegans;;;basal;basal;Species;A;Actiniaria;Sagartia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+SAPA;Sabella pavonina;;;;intermediate;Species;W;Sedentary worms;Sabella;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+SARC;Sarcotragus sp;3;3;basal;basal;Gender;S;Sponge;Sarcotragus;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+SASA;Savalia savaglia;;;upper;upper;Species;Z;Zoantharia;Savalia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+SASP;Sabella spallanzanii;;;;intermediate;Species;W;Sedentary worms;Sabella;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+SCLR;Scleractinia;;2;basal;basal;Order;SCL;Scleractinia;NC;0;0;0;4;0;0;0;1;1;1;0;0;0;0;0
+SCMA;Schizomavella mamillata;2;2;basal;basal;Species;CBR;Encrusting bryozoan;Schizomavella;1;0;0;0;0;0;0;1;1;0;0;0;0;0;0
+SCSE;Schizotheca serratimargo;;;intermediate;intermediate;Species;EBR;Erected bryozoan;Schizotheca;1;0;0;0;0;0;0;0;1;0;0;0;0;0;0
+SCSP;Scrupocellaria sp;;;intermediate;intermediate;Gender;EBR;Erected bryozoan;Scrupocellaria;0;2;0;0;0;0;0;0;1;0;0;0;0;0;0
+SEAR;Serpulorbis arenarius;;;;basal;Species;W;Sedentary worms;Serpulorbis;1;0;0;0;0;0;0;0;1;1;0;0;0;0;0
+SEVE;Serpula vermicularis;;;;basal;Species;W;Sedentary worms;Serpula;1;0;0;0;0;0;0;0;1;1;0;0;0;0;0
+SGR;Sphaerechinus granularis;;;;intermediate;Species;E;Echinids;Sphaerechinus;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+SHAD;Shadow;;;;;NC;TWS;Tape, wand, shadow;NC;0;0;0;0;0;0;NC;0;0;0;0;0;0;0;0
+SMCE;Smittina cervicornis;4;4;intermediate;intermediate;Species;EBR;Erected bryozoan;Smittina;1;0;0;0;0;0;0;0;1;0;0;0;0;0;0
+SPCO;Sphaerococcus coronopifolius;;;intermediate;intermediate;Species;EMA;Erected red macroalgae;Sphaerococcus;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+SPCU;Spirastrella cunctatrix;;;basal;basal;Species;S;Sponge;Spirastrella;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+SPFR;Spongites fruticulosa;1;1;basal;basal;Species;CMA;Encrusting red macroalgae;Spongites;1;0;0;0;0;0;0;0;1;1;0;0;0;0;0
+SPLA;Spongia lamella;;;intermediate;intermediate;Species;S;Sponge;Spongia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+SPO;Sponges;;;basal;basal;Phylum;S;Sponge;NC;0;0;0;0;0;6;0;0;0;0;0;0;0;0;0
+SPOF;Spongia officinalis;;;basal;basal;Species;S;Sponge;Spongia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+SPSO;Spatoglossum solieri;;;;intermediate;Species;BM;Brown macroalgae;Spatoglossum;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+STAF;Stylocidaris affinis;;;;intermediate;Species;E;Echinids;Stylocidaris;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+SUSP;Suberites sp;;;basal;basal;Gender;S;Sponge;Suberites;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0
+SWO;Sedentary worms;;;;basal;Phylum;W;Sedentary worms;NC;0;0;0;0;0;6;0;0;0;0;0;0;0;0;0
+TAPE;Tape;;;;;NC;TWS;Tape, wand, shadow;NC;0;0;0;0;0;0;NC;0;0;0;0;0;0;0;0
+TEGE;Terpios gelatinosa;;;basal;basal;Species;S;Sponge;Terpios;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+TUAV;Turbicellepora avicularis;;;intermediate;intermediate;Species;EBR;Erected bryozoan;Turbicellepora;1;0;0;0;0;0;0;0;1;0;0;0;0;0;0
+UNK;Unknowns;;;;;NC;U;Unknowns;NC;0;0;0;0;0;0;NC;0;0;0;0;0;0;0;0
+VAMA;Valonia macrophysa;;;;basal;Species;GM;Green macroalgae;Valonia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+VATU;Valkeria tuberosa;;;intermediate;intermediate;Species;EBR;Erected bryozoan;Valonia;1;0;0;0;0;0;0;0;1;0;0;0;0;0;0
+VAUT;Valonia utricularis;;;;basal;Species;GM;Green macroalgae;Valonia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+VAVE;Valonia ventricosa;;;;basal;Species;GM;Green macroalgae;Codium;1;0;0;0;0;0;0;0;0;0;0;0;0;0;1
+VERM;Vermetus sp;;;;basal;Gender;W;Sedentary worms;Vermetus;0;2;0;0;0;0;0;0;1;1;0;0;0;0;0
+WAND;Wand;;;;;NC;TWS;Tape, wand, shadow;NC;0;0;0;0;0;0;NC;0;0;0;0;0;0;0;0
+WOSE;Womersleyella setacea;;;intermediate;intermediate;Species;EMA;Erected red macroalgae;Womersleyella;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ZATY;Zanardinia typus;1;1;;basal;Species;BM;Brown macroalgae;Zanardinia;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+ZO;Zoantharia;;;basal;basal;Class;Z;Zoantharia;NC;0;0;0;0;5;0;0;0;0;0;0;0;0;0;0
