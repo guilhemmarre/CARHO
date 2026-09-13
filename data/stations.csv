@@ -1,0 +1,10 @@
+Secteur;Facade;Station;Longitude;Latitude;Profondeur;Impact;Peche;Alien;Macrodechets
+PNMCCA;Corse;R_PNMCCA_01_imJ;9 29.770;42 51.991;47;non;non;non;non
+PNMCCA;Corse;R_PNMCCA_01;9 29.770;42 51.991;47;non;non;non;non
+PNMCCA;Corse;R_PNMCCA_02;9 30.599;42 59.543;49;non;non;non;non
+PNMCCA;Corse;R_PNMCCA_03;9 19.514;42 59.165;49;non;non;oui;non
+PNMCCA;Corse;R_PNMCCA_04;9 18.835;42 59.535;71;oui;oui;non;non
+PNMCCA;Corse;R_PNMCCA_05;9 18.246;42 58.887;61;non;non;non;non
+PNMCCA;Corse;R_PNMCCA_06;9 16.933;42 58.623;68;oui;oui;non;non
+PNMCCA;Corse;R_PNMCCA_07;9 16.340;43 0.634;86;non;non;non;non
+PNMCCA;Corse;R_PNMCCA_08;9 15.949;43 0.645;104;non;non;non;non

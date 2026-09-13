@@ -1,0 +1,60 @@
+---
+output: 
+  word_document:
+    reference_docx: ../data/Template_fiche_timeserie.docx
+---
+
+
+```{r setup, include = FALSE}
+
+require(ggplot2)
+require(flextable)
+
+load("../temp.RData")
+
+set_flextable_defaults(
+  font.size = 10, 
+  theme_fun = theme_vanilla,
+  #padding = 6,
+  background.color = "#EFEFEF",
+  table.layout = "autofit",
+  text.align = "center",
+  table_align = "center",
+  decimal.mark = ",",
+  big.mark = "")
+
+```
+
+
+# Annexe 1
+
+Le tableau suivant fournit la liste des `r paste0("**", nb_taxons_faune, "**")` taxons de **faune** observés sur l'ensemble des stations échantillonnées :
+
+
+```{r, echo = FALSE, warning = FALSE, tab.cap= paste0("Liste des espèces de faune observées sur l'ensemble des stations échantillonnées, leur classification, groupe morpho-fonctionnel ainsi que le nombre de stations où l'on retrouve chaque espèce sur le continent et en Corse.")}
+if (length(taxons_faune) > 0){
+  
+  ft <- flextable(tableau_faune)
+  ft <- italic(ft, j = "Espece", italic = TRUE, part = "body")
+  ft
+  
+}
+
+```
+
+
+# Annexe 2
+
+Le tableau suivant fournit la liste des `r paste0("**", nb_taxons_flore, "**")` taxons de **flore** observés sur l'ensemble des stations échantillonnées :
+
+
+```{r, echo = FALSE, warning = FALSE, tab.cap= paste0("Liste des espèces de flore observées sur l'ensemble des stations échantilonnées, leur classification, groupe morpho-fonctionnel ainsi que le nombre de stations où l'on retrouve chaque espèce sur le continent et en Corse.")}
+if (length(taxons_flore) > 0){
+  
+  ft <- flextable(tableau_flore)
+  ft <- italic(ft, j = "Espece", italic = TRUE, part = "body")
+  ft
+  
+}
+```
+

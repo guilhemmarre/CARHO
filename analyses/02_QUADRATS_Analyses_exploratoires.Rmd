@@ -1,0 +1,424 @@
+---
+title: "Analyses exploratoires quadrats CAREMAERL"
+author: "Andromède Océanologie"
+date: "2025-05-28"
+output: 
+  html_document:
+    keep_md: true
+    toc: true
+    toc_float: true
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r load data, echo = FALSE, warning=FALSE, prompt=FALSE, message = FALSE}
+library(ggplot2);library(dplyr);library(stringr);library(RColorBrewer);library(tidyr);library(ggExtra);library(svDialogs)
+library(leaflet)
+library(leaflet.extras)
+
+
+load("../outputs/01_data.RData")
+
+```
+
+```{r plot settings, echo = FALSE}
+myColors <- c("#8b0015","#ff635d","#ff6900","#ffbb8b","#fffdb9",
+            "#5d3800","#7f008b","#268b00",
+            "#ff8bf3","#b9e2ff","#00485d",
+            "#5d3800","#7f008b",
+            "#03fcf8",
+            "#fc03f8","#850182","#bf04bc","#f571f3","#994598",
+            "#e3e3de","#363635","#8f8f8d","#e7e8b3","#5e5e48")
+
+names(myColors) <- c("Maerl vivant", "Maerl vivant x Sediment", "Maerl vivant x Maerl mort", "Maerl mort", "Maerl mort x Sediment",
+                     "Sediment","Faune","Algues",
+                     "Corallines vivantes", "Corallines encroutantes", "Corallines mortes",
+                     "Coquilles vides", "Coquilles vides x Sediment",
+                     "Peyssonneliaceae",
+                     "Pralines vivantes", "Pralines mortes", "Pralines vivantes x Pralines mortes", "Pralines vivantes x Sediment", "Pralines mortes x Sediment",
+                     "Boxwork vivant", "Boxwork mort", "Boxwork vivant x Boxwork mort", "Boxwork vivant x Sediment", "Boxwork mort x Sediment")
+
+
+colScale <- scale_fill_manual(name = "Categories :",values = alpha(myColors,0.7))
+```
+
+# Méthodologie
+
+## Analyse des quadrats
+
+Chaque quadrat correspond à une surface d'échantillonnage de **2475 cm²** (45 x 55 cm). 
+
+Le quadrat est découpé en une grille de **15 lignes** et **15 colonnes** soit **225 cellules**.
+
+Pour chaque cellule, l'utilisateur attribue **l'une des catégories suivantes** :
+
+- Maerl vivant
+- Maerl mort
+- Sediment
+- Faune
+- Algues
+- Corallines vivantes
+- Corallines encroutantes
+- Corallines mortes
+- Maerl vivant x Maerl mort
+- Maerl vivant x Sediment
+- Maerl mort x Sediment
+- Coquilles vides
+- Coquilles vides x Sediment
+- Peyssonneliaceae
+- Pralines vivantes
+- Pralines mortes
+- Pralines vivantes x Pralines mortes
+- Pralines vivantes x Sediment
+- Pralines mortes x Sediment
+- Boxwork vivant
+- Boxwork mort
+- Boxwork vivant x Boxwork mort
+- Boxwork vivant x Sediment
+- Boxwork mort x Sediment
+
+---
+
+## Calcul des indicateurs
+
+**Avec :**
+
+**A** = % d'Algues
+
+**Fauna** = % de faune
+
+**MV** = % de Maërl vivant
+
+**MVS** = % Maërl vivant x sédiment
+
+**MVMM** = % Maërl vivant x Maërl mort
+
+**R** = (100 - (F + MV + MVS)) (ce qui n'est pas du maërl)
+
+---
+
+Pour chaque quadrat, nous calculons **trois indicateurs** originellement spécifiques à une seule catégorie de Maerl :
+
+**Indice Bizien** = ((Fauna / 100) + (MV / 100) + (MVS / 100) - (R / 100) + 1) / 2
+
+**Mvth** = (MV + MVS / 2 + Fauna / 3 + A / 3 + MVMM / 2) / 100
+
+**Vitalite** = Mvth * 100 / MVMMth
+
+Avec MVMMth = MV + MM + MVMM + MVS / 2 + MMS / 2 + Fauna * 2 / 3 + A *2/3
+
+
+---
+
+Comme nous décrivons **plusieurs catégories** de maërl (maërl, pralines, boxwork) nous avons calculé ces deux indices pour :
+
+- **maërl stricto sensus**
+
+- **les 3 catégories ensemble + Peyssonneliaceae** (MV = Maërl vivant + Pralines vivantes + Boxwork vivant; MVS = ...)
+
+---
+
+# Cartographie des indicateurs
+
+## Etat écologique - indicateur Bizien maerl
+
+```{r, echo = FALSE, warning=FALSE, prompt=FALSE}
+pal <- leaflet::colorFactor(palette = "RdYlGn", ,
+  levels = levels(indices_stations$E_Bizien_maerl), ordered = TRUE
+)
+
+leaflet(data = indices_stations, options = leafletOptions(zoomControl = TRUE, 
+                                                           zoomSnap = 0,
+                                                           zoomDelta = 1, 
+                                                           wheelPxPerZoomLevel = 60)) %>% 
+  addTiles() %>% 
+  addFullscreenControl() %>%
+  setView(lng = 7.44, lat = 42.91, zoom = 7 ) %>% 
+  addProviderTiles("Esri.WorldImagery") %>% 
+  addCircleMarkers(~Longitude, ~Latitude, 
+                   popup = ~paste0("<strong>Station : </strong>", Station, 
+                                  "<br><strong>Profondeur : </strong>", Profondeur, " m", 
+                                  "<br><strong>Etat Bizien maerl : </strong>", E_Bizien_maerl,
+                                  "<br><strong>Indice Bizien maerl : </strong>", round(Bizien_maerl, 2)), 
+                   label = ~Station, color = ~pal(E_Bizien_maerl), radius = 3, fillOpacity = 1, stroke = FALSE) %>% 
+  
+  addLegend('bottomright', pal = pal, values = indices_stations$E_Bizien_maerl, 
+            title = 'Etat Bizien maerl', 
+            opacity = 1)
+
+```
+--- 
+
+## Etat écologique - indicateur Mvth maerl
+
+```{r, echo = FALSE, warning=FALSE, prompt=FALSE}
+pal <- leaflet::colorFactor(palette = "RdYlGn", ,
+  levels = levels(indices_stations$E_Mvth_maerl), ordered = TRUE
+)
+
+leaflet(data = indices_stations, options = leafletOptions(zoomControl = TRUE, 
+                                                           zoomSnap = 0,
+                                                           zoomDelta = 1, 
+                                                           wheelPxPerZoomLevel = 60)) %>% 
+  addTiles() %>% 
+  addFullscreenControl() %>%
+  setView(lng = 7.44, lat = 42.91, zoom = 7 ) %>% 
+  addProviderTiles("Esri.WorldImagery") %>% 
+  addCircleMarkers(~Longitude, ~Latitude, 
+                   popup = ~paste0("<strong>Station : </strong>", Station, 
+                                  "<br><strong>Profondeur : </strong>", Profondeur, " m", 
+                                  "<br><strong>Etat Mvth maerl : </strong>", E_Mvth_maerl,
+                                  "<br><strong>Indice Mvth maerl : </strong>", round(Mvth_maerl, 2)), 
+                   label = ~Station, color = ~pal(E_Mvth_maerl), radius = 3, fillOpacity = 1, stroke = FALSE) %>% 
+  
+  addLegend('bottomright', pal = pal, values = indices_stations$E_Mvth_maerl, 
+            title = 'Etat Mvth maerl', 
+            opacity = 1)
+
+```
+
+---
+
+## Etat écologique - indicateur Vitalité maerl
+
+```{r, echo = FALSE, warning=FALSE, prompt=FALSE}
+pal <- leaflet::colorFactor(palette = "RdYlGn", ,
+  levels = levels(indices_stations$E_Vit_maerl), ordered = TRUE
+)
+
+leaflet(data = indices_stations, options = leafletOptions(zoomControl = TRUE, 
+                                                           zoomSnap = 0,
+                                                           zoomDelta = 1, 
+                                                           wheelPxPerZoomLevel = 60)) %>% 
+  addTiles() %>% 
+  addFullscreenControl() %>%
+  setView(lng = 7.44, lat = 42.91, zoom = 7 ) %>% 
+  addProviderTiles("Esri.WorldImagery") %>% 
+  addCircleMarkers(~Longitude, ~Latitude, 
+                   popup = ~paste0("<strong>Station : </strong>", Station, 
+                                  "<br><strong>Profondeur : </strong>", Profondeur, " m", 
+                                  "<br><strong>Etat vitalite maerl : </strong>", E_Vit_maerl,
+                                  "<br><strong>Indice vitalite maerl : </strong>", round(Vit_maerl, 2)), 
+                   label = ~Station, color = ~pal(E_Vit_maerl), radius = 3, fillOpacity = 1, stroke = FALSE) %>% 
+  
+  addLegend('bottomright', pal = pal, values = indices_stations$E_Vit_maerl, 
+            title = 'Etat vitalite maerl', 
+            opacity = 1)
+
+```
+
+---
+
+## Etat écologique - indicateur Bizien all
+
+```{r, echo = FALSE, warning=FALSE, prompt=FALSE}
+pal <- leaflet::colorFactor(palette = "RdYlGn", ,
+  levels = levels(indices_stations$E_Bizien_all), ordered = TRUE
+)
+
+leaflet(data = indices_stations, options = leafletOptions(zoomControl = TRUE, 
+                                                           zoomSnap = 0,
+                                                           zoomDelta = 1, 
+                                                           wheelPxPerZoomLevel = 60)) %>% 
+  addTiles() %>% 
+  addFullscreenControl() %>%
+  setView(lng = 7.44, lat = 42.91, zoom = 7 ) %>% 
+  addProviderTiles("Esri.WorldImagery") %>% 
+  addCircleMarkers(~Longitude, ~Latitude, 
+                   popup = ~paste0("<strong>Station : </strong>", Station, 
+                                  "<br><strong>Profondeur : </strong>", Profondeur, " m", 
+                                  "<br><strong>Etat Bizien all : </strong>", E_Bizien_all,
+                                  "<br><strong>Indice Bizien all : </strong>", round(Bizien_all, 2)), 
+                   label = ~Station, color = ~pal(E_Bizien_all), radius = 3, fillOpacity = 1, stroke = FALSE) %>% 
+  
+  addLegend('bottomright', pal = pal, values = indices_stations$E_Bizien_all, 
+            title = 'Etat Bizien all', 
+            opacity = 1)
+
+```
+--- 
+
+## Etat écologique - indicateur Mvth all
+
+```{r, echo = FALSE, warning=FALSE, prompt=FALSE}
+pal <- leaflet::colorFactor(palette = "RdYlGn", ,
+  levels = levels(indices_stations$E_Mvth_all), ordered = TRUE
+)
+
+leaflet(data = indices_stations, options = leafletOptions(zoomControl = TRUE, 
+                                                           zoomSnap = 0,
+                                                           zoomDelta = 1, 
+                                                           wheelPxPerZoomLevel = 60)) %>% 
+  addTiles() %>% 
+  addFullscreenControl() %>%
+  setView(lng = 7.44, lat = 42.91, zoom = 7 ) %>% 
+  addProviderTiles("Esri.WorldImagery") %>% 
+  addCircleMarkers(~Longitude, ~Latitude, 
+                   popup = ~paste0("<strong>Station : </strong>", Station, 
+                                  "<br><strong>Profondeur : </strong>", Profondeur, " m", 
+                                  "<br><strong>Etat Mvth all : </strong>", E_Mvth_all,
+                                  "<br><strong>Indice Mvth all : </strong>", round(Mvth_all, 2)), 
+                   label = ~Station, color = ~pal(E_Mvth_all), radius = 3, fillOpacity = 1, stroke = FALSE) %>% 
+  
+  addLegend('bottomright', pal = pal, values = indices_stations$E_Mvth_all, 
+            title = 'Etat Mvth all', 
+            opacity = 1)
+
+```
+
+---
+
+## Etat écologique - indicateur vitalité all
+
+```{r, echo = FALSE, warning=FALSE, prompt=FALSE}
+pal <- leaflet::colorFactor(palette = "RdYlGn", ,
+  levels = levels(indices_stations$E_Vit_all), ordered = TRUE
+)
+
+leaflet(data = indices_stations, options = leafletOptions(zoomControl = TRUE, 
+                                                           zoomSnap = 0,
+                                                           zoomDelta = 1, 
+                                                           wheelPxPerZoomLevel = 60)) %>% 
+  addTiles() %>% 
+  addFullscreenControl() %>%
+  setView(lng = 7.44, lat = 42.91, zoom = 7 ) %>% 
+  addProviderTiles("Esri.WorldImagery") %>% 
+  addCircleMarkers(~Longitude, ~Latitude, 
+                   popup = ~paste0("<strong>Station : </strong>", Station, 
+                                  "<br><strong>Profondeur : </strong>", Profondeur, " m", 
+                                  "<br><strong>Etat vitalite all : </strong>", E_Vit_all,
+                                  "<br><strong>Indice vitalite all : </strong>", round(Vit_all, 2)), 
+                   label = ~Station, color = ~pal(E_Vit_all), radius = 3, fillOpacity = 1, stroke = FALSE) %>% 
+  
+  addLegend('bottomright', pal = pal, values = indices_stations$E_Vit_all, 
+            title = 'Etat vitalite all', 
+            opacity = 1)
+
+```
+
+---
+
+# Graphiques descriptifs des catégories
+
+## Catégories cumulées par station
+
+```{r barplot, echo=FALSE, message = FALSE, fig.width = 12, fig.height=7}
+################
+### BARPLOTS ###
+################
+
+# Valeurs moyennes cumulees
+ggplot(data=MeanCover, aes(x=Station,y=MeanPercent,fill=Category))+
+  geom_bar(stat="identity")+
+  ylab("COUVERTURE MOYENNE (%)")+
+  xlab("")+
+  labs(fill = "Categories:")+ 
+  theme_bw()+
+  theme(text = element_text(family="sans",size=10),
+        axis.title = element_text(color = "gray15",size = rel(0.9)),
+        plot.title = element_text(color = "gray15",face = "bold",hjust = 0),
+        axis.text.x = element_text(color = "gray15",face = "bold",hjust = 0, angle = 90),
+        panel.grid = element_blank())+
+  colScale
+```
+
+---
+
+## Variabilité des catégories entre quadrats
+
+```{r, echo=FALSE, message = FALSE}
+for (var in unique(MeanCover$Station)) {
+  gg <- ggplot(data=MeanCover[MeanCover$Station==var,], aes(x=Category,y=MeanPercent))+
+    geom_bar(stat="identity",position=position_dodge(),lwd=0)+
+    geom_errorbar(aes(ymin=MeanPercent, ymax=MeanPercent+SdCover), width=.2,position=position_dodge(.9),lwd=0)+
+    xlab("")+
+    ylab("Pourcentage de couverture moyenne")+
+    theme_bw()+
+    theme(axis.text.x = element_text(angle=90,hjust=1,vjust=0.3),
+          panel.grid.major.x = element_blank(),
+          panel.grid = element_line(size=0), 
+          text=element_text(family="sans", size=10))+
+    labs(title=var,subtitle=paste("Nombre de quadrats analyses:",10,"\nDegres de precision:",paste(unique(dataset$Precision))))
+  
+  plot(gg)
+}
+
+```
+
+---
+
+# Effet des pressions
+
+```{r, echo=FALSE, message = FALSE}
+ggplot(data=indices_stations, aes(x=Impact,y=Bizien_maerl))+
+  geom_boxplot() +
+  xlab("Pressions anthropiques")+
+  ylab("Indice Bizien Maerl")
+
+ggplot(data=indices_stations, aes(x=Impact,y=Mvth_maerl))+
+  geom_boxplot() +
+  xlab("Pressions anthropiques")+
+  ylab("Indice Mvth Maerl")
+
+ggplot(data=indices_stations, aes(x=Impact,y=Vit_maerl))+
+  geom_boxplot() +
+  xlab("Pressions anthropiques")+
+  ylab("Indice vitalité Maerl")
+
+ggplot(data=indices_stations, aes(x=Impact,y=Bizien_all))+
+  geom_boxplot() +
+  xlab("Pressions anthropiques")+
+  ylab("Indice Bizien all")
+
+ggplot(data=indices_stations, aes(x=Impact,y=Mvth_all))+
+  geom_boxplot() +
+  xlab("Pressions anthropiques")+
+  ylab("Indice Mvth all")
+
+ggplot(data=indices_stations, aes(x=Impact,y=Vit_all))+
+  geom_boxplot() +
+  xlab("Pressions anthropiques")+
+  ylab("Indice vitalité all")
+
+```
+
+---
+
+# Positionnement des stations par rapport aux autres
+
+```{r, echo=FALSE, message = FALSE}
+
+for (station in unique(indices_stations$Station)){
+  
+  par(mfrow=c(2, 1))
+  
+  # Indice Bizien - all
+  hist(x = indices_stations$Bizien_all, 
+       xlab = "Indice Bizien - maërl",
+       ylab = "Nombre de stations", 
+       main = "")
+  abline(v = indices_stations$Bizien_maerl[indices_stations$Station == station], col = 'red', lwd = 2, lty = 'dashed')
+  text(x = indices_stations$Bizien_maerl[indices_stations$Station == station], 
+       y = 1,
+       labels = indices_stations$E_Bizien_maerl[indices_stations$Station == station],
+       col = "red",
+       font = 2)
+  
+    # Indice Bizien - all
+  hist(x = indices_stations$Bizien_all, 
+       xlab = "Indice Bizien - tous",
+       ylab = "Nombre de stations", 
+       main = "")
+  abline(v = indices_stations$Bizien_all[indices_stations$Station == station], col = 'red', lwd = 2, lty = 'dashed')
+  text(x = indices_stations$Bizien_all[indices_stations$Station == station], 
+       y = 1,
+       labels = indices_stations$E_Bizien_all[indices_stations$Station == station],
+       col = "red",
+       font = 2)
+}
+
+```
+

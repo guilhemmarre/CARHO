@@ -12,6 +12,7 @@
 # RStudio files ----
 *.Rproj
 .Rproj.user/
+*.RData
 
 # R Environment Variables ----
 .Renviron
@@ -25,8 +26,12 @@ outputs/*
 # Figures
 figures/*
 
+# Rapport
+rapport/*
+
 # User-specific files ----
 README.html
 inst/doc
 man/
 NAMESPACE
+_Ellona/*

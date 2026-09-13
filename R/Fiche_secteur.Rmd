@@ -1,0 +1,59 @@
+---
+output: 
+  word_document:
+    reference_docx: ../data/Template_fiche_timeserie.docx
+---
+
+
+```{r setup, include = FALSE}
+
+require(ggplot2)
+require(flextable)
+
+load("../temp.RData")
+
+set_flextable_defaults(
+  font.size = 10, 
+  theme_fun = theme_vanilla,
+  #padding = 6,
+  background.color = "#EFEFEF",
+  table.layout = "autofit",
+  text.align = "center",
+  table_align = "center",
+  decimal.mark = ",",
+  big.mark = "")
+
+```
+
+
+# `r secteur`
+
+L’analyse des **5 quadrats photographiques** de ces `r paste0("**", length(stations), "**")` **stations** a permis d’identifier `r paste0("**", nb_taxons_faune, "**")` taxons de faune et `r paste0("**", nb_taxons_flore, "**")` taxons de flore, appartenant à `r paste0("**", nb_groupes_morpho, "**")` **catégories morpho-fonctionnelles** (toutes stations confondues).
+
+Le tableau suivant fournit la liste des taxons de **faune** observés sur le secteur `r paste0("**", secteur, "**")` :
+
+
+```{r, echo = FALSE, warning = FALSE, tab.cap= paste0("Liste des espèces de faune observées sur le secteur ", secteur, ", leur classification, groupe morpho-fonctionnel et nombre d’observations parmi les cinq quadrats photographiques.")}
+if (length(taxons_faune) > 0){
+  
+  ft <- flextable(tableau_faune)
+  ft <- italic(ft, j = "Espece", italic = TRUE, part = "body")
+  ft
+  
+}
+
+```
+
+Le tableau suivant fournit la liste des taxons de **flore** observés sur le secteur `r paste0("**", secteur, "**")` :
+
+
+```{r, echo = FALSE, warning = FALSE, tab.cap= paste0("Liste des espèces de flore observées sur le secteur ", secteur, ", leur classification, groupe morpho-fonctionnel et surface de recouvrement parmi les cinq quadrats photographiques.")}
+if (length(taxons_flore) > 0){
+  
+  ft <- flextable(tableau_flore)
+  ft <- italic(ft, j = "Espece", italic = TRUE, part = "body")
+  ft
+  
+}
+```
+
