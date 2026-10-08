@@ -165,6 +165,24 @@ donnees_rhodo$Station <- as.factor(donnees_rhodo$Station)
 donnees_rhodo$QuadratName <- as.factor(donnees_rhodo$QuadratName)
 
 
+# Export tableau d'annexe pour le parc
+library(dplyr)
+library(tidyr)
+
+recap_especes <- donnees_cpce_raw %>%
+  count(ID_code, Station) %>%
+  pivot_wider(
+    names_from = Station,
+    values_from = n,
+    values_fill = 0
+  )
+
+recap_especes <- merge(recap_especes, BDD_especes[,c("ID_code","id_name")], all.x = TRUE, all.y = FALSE)
+recap_especes <- recap_especes[,c("id_name","ID_code","R_PNMCCA_01", "R_PNMCCA_02", "R_PNMCCA_03", "R_PNMCCA_04", "R_PNMCCA_05", "R_PNMCCA_06", "R_PNMCCA_07", "R_PNMCCA_08")]
+colnames(recap_especes)[1:2] <- c("Classe", "Code_cpce")
+recap_especes[,3:ncol(recap_especes)] <- round(recap_especes[,3:ncol(recap_especes)] / 1920 * 100, 2)
+write.table(recap_especes, "outputs/01_Pourcentage_recouvrement_classes_CPCe_stations.csv", sep = ";", dec = ".", row.names = FALSE)
+
 
 # Calculs de surface ------------------------------------------------------
 cm2 = 2475

@@ -83,4 +83,10 @@ terra::writeRaster(x = r,
 )
 
 ### CALCUL SURFACES PAR HABITAT DANS LE PARC
-table(terra::values(r)) * terra::res(r)^2 / 10000
+areas <- table(terra::values(r)) * terra::res(r)^2 / 10000
+stats <- data.frame("cd_hab" = classes[as.numeric(names(areas))],
+                    "area" = as.vector(areas))
+stats$Carbone_T_an_bas <- stats$area * 10000 * 0.210 / 1000 # surface en m² x prod basse en kg / m² puis / 1000 pour avoir en tonnes
+stats$Carbone_T_an_haute <- stats$area * 10000 * 0.289 / 1000 # surface en m² x prod basse en kg / m² puis / 1000 pour avoir en tonnes
+
+write.table(stats, "outputs/08_Surfaces_production_carbone.csv", sep = ";", dec = ".", row.names = FALSE)

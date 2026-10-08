@@ -5,7 +5,7 @@ library(leaflet.extras)
 library(dplyr)
 library(scales)
 
-load("output/01_data.RData")
+load("outputs/01_data.RData")
 
 cols_etat <- c("Mauvais" = "red",
                "Moyen" = "yellow",
@@ -165,7 +165,7 @@ ggplot(data = MeanIndice,aes(x=reorder(Station,MeanIndice),y=MeanIndice))+
 dev.off()
 
 # Bizien - maerl
-indices$Station <- as.factor(indices_stations$Station[order(indices_stations$Bizien_maerl, decreasing = FALSE)])
+indices$Station <- factor(indices$Station, levels = indices_stations$Station[order(indices_stations$Bizien_maerl, decreasing = FALSE)])
 
 MeanIndice <- indices %>%
   group_by(Station) %>%
@@ -217,7 +217,7 @@ ggplot(data = MeanIndice,aes(x=reorder(Station,MeanIndice),y=MeanIndice))+
 dev.off()
 
 # Mvth - maerl
-indices$Station <- as.factor(indices_stations$Station[order(indices_stations$Mvth_maerl, decreasing = FALSE)])
+indices$Station <- factor(indices$Station, levels = indices_stations$Station[order(indices_stations$Mvth_maerl, decreasing = FALSE)])
 
 MeanIndice <- indices %>%
   group_by(Station) %>%
@@ -270,7 +270,7 @@ ggplot(data = MeanIndice,aes(x=reorder(Station,MeanIndice),y=MeanIndice))+
 dev.off()
 
 # Vit - maerl
-indices$Station <- as.factor(indices_stations$Station[order(indices_stations$Vit_maerl, decreasing = FALSE)])
+indices$Station <- factor(indices$Station, levels = indices_stations$Station[order(indices_stations$Vit_maerl, decreasing = FALSE)])
 
 MeanIndice <- indices_stations %>%
   group_by(Station) %>%
@@ -448,7 +448,7 @@ dev.off()
 indices_stations$Etat_sante_global <- as.vector(as.matrix(indices_stations[,c("Bizien_all", "Bizien_maerl", "Mvth_all", "Mvth_maerl", "Vit_all", "Vit_maerl")]) %*% PCA$loadings[,1])
 data$Etat_sante_global <- as.vector(as.matrix(data[,c("Bizien_all", "Bizien_maerl", "Mvth_all", "Mvth_maerl", "Vit_all", "Vit_maerl")]) %*% PCA$loadings[,1])
 
-write.table(indices_stations, "output/Indices_stations_all_global.csv", sep = ";", dec = ".", col.names = FALSE)
+write.table(indices_stations, "outputs/Indices_stations_all_global.csv", sep = ";", dec = ".", col.names = FALSE)
 
 # Plot des corrélations
 data_corr <- data
@@ -541,7 +541,7 @@ for (pression in var_pressions){
 data_pressions <- cbind(indices_stations, data[,var_pressions])
 data_pressions <- data_pressions[, c("Station", "Secteur","Etat_sante_global", var_pressions)]
 
-write.table(data_pressions, "output/Pressions_etat_sante_global_stations.csv", sep = ";", dec = ".", row.names = FALSE)
+write.table(data_pressions, "outputs/Pressions_etat_sante_global_stations.csv", sep = ";", dec = ".", row.names = FALSE)
 
 # On définis les secteurs pour toutes les stations
 secteurs <- data_pressions$Secteur
