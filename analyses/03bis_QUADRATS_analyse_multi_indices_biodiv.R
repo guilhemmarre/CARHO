@@ -111,9 +111,12 @@ div_tot <- apply(div_tot, 1, sum)
 div_tot <- div_tot[rownames(diversite)]
 diversite$bio <- div_tot
 
-write.table(diversite, "04_diversite_tous_indices.csv", sep = ";", dec = ".", row.names = FALSE)
-
 data <- diversite[, -grep("maerl", colnames(diversite))]
+diversite <- data.frame("Station" = rownames(diversite),
+                        diversite)
+write.table(diversite, "outputs/04_diversite_tous_indices.csv", sep = ";", dec = ".", row.names = FALSE)
+
+
 
 hc <- hclust(dist(x = data, method = "euclidean"), method = "average")
 jpeg(filename = "figures/GENERAL_arbre_multi-indices.jpg", width = 1200, 700)
