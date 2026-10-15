@@ -64,12 +64,12 @@ knitr::include_graphics(paste0("../figures/Histogramme_indices_", station, ".jpg
 
 ## Caractérisation et diversité des assemblages associés
 
-L’analyse des **30 quadrats photographiques** pour la station `r paste0("**", station, "**")` a permis d'identifier `r paste0("**", nb_taxons, "**")` taxons différents (`r paste0("**", nb_taxons_faune, "**")` de faune et `r paste0("**", nb_taxons_flore, "**")` de flore)..
+L’analyse des **30 quadrats photographiques** pour la station `r paste0("**", station, "**")` a permis d'identifier `r paste0("**", nb_taxons, "**")` taxons différents (`r paste0("**", nb_taxons_faune, "**")` de faune et `r paste0("**", nb_taxons_flore, "**")` de flore) appartenant à `r paste0("**", nb_groupes_morpho, "**")` **catégories morpho-fonctionnelles**. La station est dominée par une **flore** de type `r paste0("**", groupe_dominant_flore, "**")` et par une **faune** de type `r paste0("**", groupe_dominant_faune, "**")`.
 
 Le tableau suivant fournit la liste des taxons de **flore** observés sur la station `r paste0("**", station, "**")` :
 
 
-```{r, echo = FALSE, warning = FALSE, tab.cap= paste0("Liste des espèces de flore observées sur la station ", station, ", leur catégorie et pourcentage de recouvrement à l'échelle de la station.")}
+```{r, echo = FALSE, warning = FALSE, tab.cap= paste0("Liste des espèces de flore observées sur la station ", station, ", leur classification, groupe morpho-fonctionnel et le pourcentage de recouvrement à l'échelle de la station.")}
 if (length(taxons_flore) > 0){
   
   ft <- flextable(tableau_flore)
@@ -84,7 +84,7 @@ if (length(taxons_flore) > 0){
 Le tableau suivant fournit la liste des taxons de **faune** observés sur la station `r paste0("**", station, "**")` :
 
 
-```{r, echo = FALSE, warning = FALSE, tab.cap= paste0("Liste des espèces de faune observées sur la station ", station, ", leur catégorie et pourcentage de recouvrement à l'échelle de la station.")}
+```{r, echo = FALSE, warning = FALSE, tab.cap= paste0("Liste des espèces de faune observées sur la station ", station, ", leur classification, groupe morpho-fonctionnel et le pourcentage de recouvrement à l'échelle de la station.")}
 if (length(taxons_faune) > 0){
   
   ft <- flextable(tableau_faune)

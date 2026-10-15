@@ -17,7 +17,11 @@ stations_carho$Latitude <- toDegDec(stations_carho$Latitude)
 stations_carho$Longitude <- toDegDec(stations_carho$Longitude)
 
 # Liste espèces méthode 2
+especes <- read.table("data/BDD_especes_groupes.csv", sep = ";", dec = ".", header = TRUE)
+
+# Liste espèces CPCe
 BDD_especes <- read.table("data/BDD_especes.csv", sep = ";", dec = ".", header = TRUE)
+BDD_especes$id_name <- gsub(" ","_", BDD_especes$id_name)
 
 ### METHODE ImageJ
 files_imageJ <- list.files(path = "data/ImageJ/", pattern = glob2rx("*Output*.csv"), recursive = TRUE, full.names = TRUE)
@@ -268,10 +272,11 @@ write.table(x = comMat_substrat_stations, file = "outputs/01_Rhodolithes_comMat_
 
 # Matrice de communautés en présence pour les stations
 comMat_bio_stations <- donnees_cpce_raw
+comMat_bio_stations <- merge(comMat_bio_stations, BDD_especes[,c("ID_code", "id_name")], all.x = TRUE, all.y = FALSE)
 comMat_bio_stations$Nb <- 1
-comMat_bio_stations <- comMat_bio_stations[, c("Station","ID_code","Nb")] %>%
+comMat_bio_stations <- comMat_bio_stations[, c("Station","id_name","Nb")] %>%
   pivot_wider(
-    names_from = ID_code,
+    names_from = id_name,
     values_from = Nb,
     values_fn = sum
   )
@@ -293,15 +298,53 @@ BDD_especes$Type[!(BDD_especes$major_category %in% c(flore, "Tape, wand, shadow"
 
 
 # Matrice de communautés FLORE et FAUNE pour les stations
-taxons_flore <- colnames(comMat_bio_stations)[which(is.element(colnames(comMat_bio_stations), BDD_especes$ID_code[which(BDD_especes$Type == "Flore")]))]
-taxons_faune <- colnames(comMat_bio_stations)[which(is.element(colnames(comMat_bio_stations), BDD_especes$ID_code[which(BDD_especes$Type == "Faune")]))]
+taxons_flore <- colnames(comMat_bio_stations)[which(is.element(colnames(comMat_bio_stations), especes$Espece[which(especes$Type == "Flore")]))]
+taxons_faune <- colnames(comMat_bio_stations)[which(is.element(colnames(comMat_bio_stations), especes$Espece[which(especes$Type == "Faune")]))]
 comMat_flore_stations <- comMat_bio_stations[,c("Station", taxons_flore)]
 comMat_faune_stations <- comMat_bio_stations[,c("Station", taxons_faune)]
 
+# cols <- colnames(comMat_flore_stations)[2:ncol(comMat_flore_stations)] 
+# cols <- unname(sapply(cols, function(sp){ BDD_especes$id_name[BDD_especes$ID_code == sp] }))
+# colnames(comMat_flore_stations)[2:ncol(comMat_flore_stations)] <- cols
+# 
+# cols <- colnames(comMat_faune_stations)[2:ncol(comMat_faune_stations)] 
+# cols <- unname(sapply(cols, function(sp){ BDD_especes$id_name[BDD_especes$ID_code == sp] }))
+# colnames(comMat_faune_stations)[2:ncol(comMat_faune_stations)] <- cols
 
 write.table(comMat_flore_stations, "outputs/01_comMatrix_flore_quadrats.csv", sep = ";", dec = ".", row.names = FALSE)
 write.table(comMat_faune_stations, "outputs/01_comMatrix_faune_quadrats.csv", sep = ";", dec = ".", row.names = FALSE)
 
+
+### GROUPES MORPHO-FONCTIONNELS
+groupes_fonctionnels <- donnees_cpce_raw
+groupes_fonctionnels <- merge(groupes_fonctionnels, BDD_especes[,c("ID_code", "id_name")], all.x = TRUE, all.y = FALSE)
+groupes_fonctionnels <- merge(groupes_fonctionnels, especes[,c("Espece", "Groupe")], by.x = "id_name", by.y = "Espece", all.x = TRUE, all.y = FALSE)
+groupes_fonctionnels <- groupes_fonctionnels[groupes_fonctionnels$Groupe != "Autre",]
+groupes_fonctionnels <- groupes_fonctionnels[!is.na(groupes_fonctionnels$Groupe),]
+groupes_fonctionnels$Value <- 1
+
+# Matrice de communautés en présence pour les quadrats
+comMat_morpho_quadrats <- groupes_fonctionnels[, c("Station","QuadratName","Groupe", "Value")] %>%
+  pivot_wider(
+    names_from = Groupe,
+    values_from = Value,
+    values_fn = sum
+  )
+
+comMat_morpho_quadrats[is.na(comMat_morpho_quadrats)] <- 0
+#comMat_morpho_quadrats[comMat_morpho_quadrats > 0] <- 1
+
+write.table(comMat_morpho_quadrats, "outputs/01_comMatrix_morpho_quadrats.csv", sep = ";", dec = ".", row.names = FALSE)
+
+
+# Matrice de communautés en présence pour les stations
+comMat_morpho_stations <- comMat_morpho_quadrats
+comMat_morpho_stations$QuadratName <- NULL
+comMat_morpho_stations <- aggregate(.~Station, comMat_morpho_stations, sum)
+
+#comMat_morpho_stations[comMat_morpho_stations > 0] <- 1
+
+write.table(comMat_morpho_stations, "outputs/01_Methode2_comMatrix_morpho_stations.csv", sep = ";", dec = ".", row.names = FALSE)
 
 ##########################
 ### CALCUL DES INDICES ###
@@ -391,9 +434,9 @@ indices_stations_shp <- sf::st_as_sf(x = indices_stations,
 sf::st_write(obj = indices_stations_shp, layer = "01_Rhodolithes_indices_stations", dsn = "outputs/01_Rhodolithes_indices_stations.shp", delete_dsn = TRUE, delete_layer = FALSE)
 
 
-#################
-### PRESSIONS ###
-#################
+##############################
+### EXPORT TOUTES STATIONS ###
+##############################
 
 # Lecture du fichier de positions des autres stations
 stations_caremaerl <- read.table("../CAREMaerl_2024/QUADRATS/R/data/stations.csv", sep = ";", dec = ".", header = TRUE)

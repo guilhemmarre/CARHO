@@ -1,0 +1,96 @@
+---
+output: 
+  word_document:
+    reference_docx: ../data/Template_fiche_timeserie.docx
+---
+
+
+```{r setup, include = FALSE}
+
+require(ggplot2)
+require(flextable)
+
+load("../temp.RData")
+
+set_flextable_defaults(
+  font.size = 10, 
+  theme_fun = theme_vanilla,
+  #padding = 6,
+  background.color = "#EFEFEF",
+  table.layout = "autofit",
+  text.align = "center",
+  table_align = "center",
+  decimal.mark = ",",
+  big.mark = "")
+
+```
+
+
+# `r station`
+
+## Caractérisation et état écologique du substrat
+
+L’analyse des **10 quadrats photographiques** a montré que la station `r paste0("**", station, "**")`, située à `r paste0("**", profondeur, "**")` **m** de profondeur, est dominée par la rhodolithe de type `r paste0("**", dominante, "**")`, `r if(is.na(autres)) {"aucune autre classe ne dépassant 1 %"} else {paste("avec présence de : ", autres)}`. 
+
+Le graphique suivant montre le pourcentage de recouvrement de chaque catégorie de substrat :
+
+
+```{r figure1, echo = FALSE, fig.cap = paste0("Distribution du pourcentage de couverture par les différentes catégories de substrat pour la station ", station, " (valeurs exprimées en pourcentage de recouvrement pour chacun des 10 quadrats analysés)")}
+
+knitr::include_graphics(paste0("../figures/Barplot_recouvrement_methode1_", station, ".jpg"))
+
+```
+
+
+**L’état écologique** de cette station est :
+
+- `r paste0("**", etat_bizien_tous, "**")` d’après l'indice « Bizien – tous » (`r paste0("**", indice_bizien_tous, "**")`)
+- `r paste0("**", etat_bizien_maerl, "**")` d’après l'indice « Bizien – maërl » (`r paste0("**", indice_bizien_maerl, "**")`)
+- `r paste0("**", etat_Mvth_tous, "**")` d’après l'indice « Mvth – tous » (`r paste0("**", indice_Mvth_tous, "**")`)
+- `r paste0("**", etat_Mvth_maerl, "**")` d’après l'indice « Mvth – maërl » (`r paste0("**", indice_Mvth_maerl, "**")`)
+- `r paste0("**", etat_Vit_tous, "**")` d’après l'indice « Vitalité – tous » (`r paste0("**", indice_Vit_tous, "**")`)
+- `r paste0("**", etat_Vit_maerl, "**")` d’après l'indice « Vitalité – maërl » (`r paste0("**", indice_Vit_maerl, "**")`)
+
+Le graphique ci-dessous illustre le positionnement de la station par rapport à l’ensemble des **46 stations échantillonnées** dans le cadre de cette étude, pour **les 6 indices calculés** :
+
+
+```{r figure2, echo = FALSE, fig.cap = paste0("Etat écologique de la station ", station," par rapport aux autres stations échantillonnées, pour les 6 indices calculés")}
+
+knitr::include_graphics(paste0("../figures/Histogramme_indices_", station, ".jpg"))
+
+```
+
+
+
+## Caractérisation et diversité des assemblages associés
+
+L’analyse des **30 quadrats photographiques** pour la station `r paste0("**", station, "**")` a permis d'identifier `r paste0("**", nb_taxons, "**")` taxons différents (`r paste0("**", nb_taxons_faune, "**")` de faune et `r paste0("**", nb_taxons_flore, "**")` de flore)..
+
+Le tableau suivant fournit la liste des taxons de **flore** observés sur la station `r paste0("**", station, "**")` :
+
+
+```{r, echo = FALSE, warning = FALSE, tab.cap= paste0("Liste des espèces de flore observées sur la station ", station, ", leur catégorie et pourcentage de recouvrement à l'échelle de la station.")}
+if (length(taxons_flore) > 0){
+  
+  ft <- flextable(tableau_flore)
+  ft <- italic(ft, j = "Espece", italic = TRUE, part = "body")
+  ft
+  
+}
+```
+
+
+
+Le tableau suivant fournit la liste des taxons de **faune** observés sur la station `r paste0("**", station, "**")` :
+
+
+```{r, echo = FALSE, warning = FALSE, tab.cap= paste0("Liste des espèces de faune observées sur la station ", station, ", leur catégorie et pourcentage de recouvrement à l'échelle de la station.")}
+if (length(taxons_faune) > 0){
+  
+  ft <- flextable(tableau_faune)
+  ft <- italic(ft, j = "Espece", italic = TRUE, part = "body")
+  ft
+  
+}
+
+```

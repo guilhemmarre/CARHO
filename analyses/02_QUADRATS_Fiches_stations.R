@@ -5,10 +5,6 @@ library(leaflet.extras)
 
 load("outputs/01_data.RData")
 
-# Charger les pressions
-pressions <- read.table("../outputs/01bis_stations_pressions.csv", sep = ";", dec = ";", header = TRUE)
-
-
 # On ajoute les autres stations de CAREMAERL pour avoir des histogrammes plus complets
 stations <- unique(indices_stations$Station)
 caremaerl <- read.table("../CAREMaerl_2024/QUADRATS/R/output/01_Methode1_indices_stations.csv", sep = ";", dec = ".", header = TRUE)
@@ -99,10 +95,13 @@ for (station in stations){
   # Méthode 2
   taxons <- comMat_bio_stations[comMat_bio_stations$Station == station,2:ncol(comMat_bio_stations)]
   taxons <- names(taxons)[taxons > 0]
+  
+  # On retire les taxons qui ne sont pas faune ni flore
+  taxons <- taxons[!(taxons %in% c("Crevice", "Other_live", "Sand", "Shadow", "Unknowns", "Sludge", "Tape", "Wand", "Rubble"))]
   nb_taxons <- length(taxons)
   
-  taxons_flore <- taxons[which(is.element(taxons, BDD_especes$ID_code[BDD_especes$Type == "Flore"]))]
-  taxons_faune <- taxons[which(is.element(taxons, BDD_especes$ID_code[BDD_especes$Type == "Faune"]))]
+  taxons_flore <- taxons[which(is.element(taxons, especes$Espece[especes$Type == "Flore"]))]
+  taxons_faune <- taxons[which(is.element(taxons, especes$Espece[especes$Type == "Faune"]))]
   
   if (length(grep("imJ", station)) == 0){
     
@@ -137,11 +136,12 @@ for (station in stations){
     tableau_flore <- data.frame("Espece" = rownames(tableau_flore),
                                 "Nb_obs" = round(tableau_flore[,1], 1))
     rownames(tableau_flore) <- NULL
-    tableau_flore <- merge(tableau_flore, BDD_especes[, c("ID_code", "id_name", "major_category")], 
-                           all.x = TRUE, all.y = FALSE, by.x = "Espece", by.y = "ID_code")
-    tableau_flore <- tableau_flore[, c("id_name", "major_category","Nb_obs")]
+    tableau_flore <- merge(tableau_flore, especes[, c("Phylum", "Classe", "Espece", "Groupe")], all.x = TRUE, all.y = FALSE)
+    tableau_flore <- tableau_flore[, c("Espece","Phylum", "Classe", "Groupe","Nb_obs")]
+    groupe_dominant_flore <- aggregate(Nb_obs ~ Groupe, tableau_flore, sum)
+    groupe_dominant_flore <- groupe_dominant_flore$Groupe[which.max(groupe_dominant_flore$Nb_obs)]
     tableau_flore$Nb_obs <- round(tableau_flore$Nb_obs / nb_obs * 100, 2)
-    colnames(tableau_flore) <- c("Espece", "Categorie", "%")
+    colnames(tableau_flore) <- c("Espece", "Phylum", "Classe", "Groupe morpho", "%")
     tableau_flore$Espece <- gsub("_"," ", tableau_flore$Espece)
     nb_taxons_flore <- nrow(tableau_flore)
     
@@ -159,11 +159,12 @@ for (station in stations){
     tableau_faune <- data.frame("Espece" = rownames(tableau_faune),
                                 "Nb_obs" = round(tableau_faune[,1], 1))
     rownames(tableau_faune) <- NULL
-    tableau_faune <- merge(tableau_faune, BDD_especes[, c("ID_code", "id_name", "major_category")], 
-                           all.x = TRUE, all.y = FALSE, by.x = "Espece", by.y = "ID_code")
-    tableau_faune <- tableau_faune[, c("id_name", "major_category","Nb_obs")]
+    tableau_faune <- merge(tableau_faune, especes[, c("Phylum", "Classe", "Espece", "Groupe")], all.x = TRUE, all.y = FALSE)
+    tableau_faune <- tableau_faune[, c("Espece","Phylum", "Classe", "Groupe","Nb_obs")]
+    groupe_dominant_faune <- aggregate(Nb_obs ~ Groupe, tableau_faune, sum)
+    groupe_dominant_faune <- groupe_dominant_faune$Groupe[which.max(groupe_dominant_faune$Nb_obs)]
     tableau_faune$Nb_obs <- round(tableau_faune$Nb_obs / nb_obs * 100, 2)
-    colnames(tableau_faune) <- c("Espece", "Categorie", "%")
+    colnames(tableau_faune) <- c("Espece", "Phylum", "Classe", "Groupe morpho", "%")
     tableau_faune$Espece <- gsub("_"," ", tableau_faune$Espece)
     nb_taxons_faune <- nrow(tableau_faune)
     
@@ -172,12 +173,18 @@ for (station in stations){
     nb_taxons_faune <- 0
   }
 
+  # Groupes morpho
+  groupes_morpho <- comMat_morpho_stations[comMat_morpho_stations$Station == station,2:ncol(comMat_morpho_stations)]
+  groupes_morpho <- names(groupes_morpho)[groupes_morpho > 0]
+  nb_groupes_morpho <- length(groupes_morpho) 
+  
   
   # Barplot méthode 1 station
   jpeg(filename = paste0("figures/Barplot_recouvrement_methode1_", station, ".jpg"), width = 1000, height = 700)
     gg <- ggplot(data = donnees_rhodo_stations[donnees_rhodo_stations$Station == station,], aes(x = Category, y = MeanPercent))+
       geom_bar(stat="identity", position=position_dodge(),lwd=0)+
       geom_errorbar(aes(ymin=MeanPercent, ymax=MeanPercent+SdCover), width=.2,position=position_dodge(.9),lwd=0)+
+      scale_x_discrete(drop=FALSE)+
       xlab("")+
       ylab("Pourcentage de couverture moyenne")+
       theme_bw()+
@@ -360,4 +367,84 @@ for (station in stations){
   file.remove("temp.RData")
   
 }
+
+
+
+###################################
+### Export fiche secteur PNMCCA ###
+###################################
+
+stations <- stations[-grep("imJ", stations)]
+
+for (secteur in "PNMCCA"){
+  
+  taxons <- colnames(comMat_bio_stations)
+  nb_taxons <- length(taxons)
+
+  
+  taxons_flore <- taxons[which(is.element(taxons, especes$Espece[especes$Type == "Flore"]))]
+  taxons_faune <- taxons[which(is.element(taxons, especes$Espece[especes$Type == "Faune"]))]
+  
+  # Flore
+  if (length(taxons_flore) > 0){
+    
+    tableau_flore <- comMat_flore_stations[comMat_flore_stations$Station %in% stations,]
+    tableau_flore <- data.frame("Espece" = colnames(tableau_flore[,2:ncol(tableau_flore)]),
+                                "Nb_obs" = apply(tableau_flore[,2:ncol(tableau_flore)], 2, sum))
+    rownames(tableau_flore) <- NULL
+    tableau_flore <- merge(tableau_flore, especes[, c("Phylum", "Classe", "Espece", "Groupe")], all.x = TRUE, all.y = FALSE)
+    tableau_flore <- tableau_flore[, c("Espece","Phylum", "Classe", "Groupe","Nb_obs")]
+
+    groupe_dominant_flore <- aggregate(Nb_obs ~ Groupe, tableau_flore, sum)
+    groupe_dominant_flore <- groupe_dominant_flore$Groupe[which.max(groupe_dominant_flore$Nb_obs)]
+    
+    colnames(tableau_flore) <- c("Espece", "Phylum", "Classe", "Groupe morpho", "Nb obs")
+    tableau_flore$Espece <- gsub("_"," ", tableau_flore$Espece)
+    tableau_flore$Phylum <- gsub("_"," ", tableau_flore$Phylum)
+    nb_taxons_flore <- nrow(tableau_flore)
+    
+  }else{
+    
+    nb_taxons_flore <- 0
+  }
+  
+  
+  # Faune
+  if (length(taxons_faune) > 0){
+    
+    tableau_faune <- comMat_faune_stations[comMat_faune_stations$Station %in% stations,]
+    tableau_faune <- data.frame("Espece" = colnames(tableau_faune[,2:ncol(tableau_faune)]),
+                                "Nb_obs" = apply(tableau_faune[,2:ncol(tableau_faune)], 2, sum))
+    rownames(tableau_faune) <- NULL
+    tableau_faune <- merge(tableau_faune, especes[, c("Phylum", "Classe", "Espece", "Groupe")], all.x = TRUE, all.y = FALSE)
+    tableau_faune <- tableau_faune[, c("Espece","Phylum", "Classe", "Groupe","Nb_obs")]
+
+    groupe_dominant_faune <- aggregate(Nb_obs ~ Groupe, tableau_faune, sum)
+    groupe_dominant_faune <- groupe_dominant_faune$Groupe[which.max(groupe_dominant_faune$Nb_obs)]
+    
+    colnames(tableau_faune) <- c("Espece", "Phylum", "Classe", "Groupe morpho", "Nb obs")
+    tableau_faune$Espece <- gsub("_"," ", tableau_faune$Espece)
+    tableau_faune$Phylum <- gsub("_"," ", tableau_faune$Phylum)
+    nb_taxons_faune <- nrow(tableau_faune)
+    
+  }else{
+    
+    nb_taxons_faune <- 0
+  }
+  
+  
+  # Groupes morpho
+  groupes_morpho <- comMat_morpho_stations[comMat_morpho_stations$Station %in% stations,2:ncol(comMat_morpho_stations)]
+  groupes_morpho <- names(groupes_morpho)[apply(groupes_morpho, 2, sum) > 0]
+  nb_groupes_morpho <- length(groupes_morpho) 
+  
+  save.image(file = "temp.RData")
+  
+  # Rendu de la fiche
+  rmarkdown::render("R/Fiche_secteur.Rmd", output_file = paste0("../outputs/Fiche_secteur_",secteur,".docx"))
+  
+  # Suppression du stockage des variables
+  file.remove("temp.RData")
+  
+}#eo for secteur
 
