@@ -6,8 +6,8 @@ library(tidyverse)
 ##############################
 
 # df_base <- sf::st_read("outputs/04_bio_plongees_pressions_env.gpkg")
-# save(df_base, file = "outputs/04_bio_plongees_pressions_env.RData")
-load(file = "outputs/04_bio_plongees_pressions_env.RData")
+# save(df_base, file = "outputs/05_bio_plongees_pressions_env.RData")
+load(file = "outputs/05_bio_plongees_pressions_env.RData")
 
 
 #################################
@@ -18,8 +18,10 @@ load(file = "outputs/04_bio_plongees_pressions_env.RData")
 df_base <- df_base[!is.na(df_base$profondeur),]
 
 # Correction habitat rhodolithe incertain
-df_base$cd_hab[df_base$cd_hab == "asso rhodo indé IV.2.2."] <- "IV.2.2." # rhodo indéterminée
-df_base$cd_hab[df_base$cd_hab == "asso rhodo indé IV.2.4."] <- "IV.2.4." # rhodo indéterminée
+# df_base$cd_hab[df_base$cd_hab == "asso rhodo indé IV.2.2."] <- "IV.2.2." # rhodo indéterminée
+# df_base$cd_hab[df_base$cd_hab == "asso rhodo indé IV.2.4."] <- "IV.2.4." # rhodo indéterminée
+df_base <- df_base[df_base$cd_hab != "asso rhodo indé IV.2.2.",]
+df_base <- df_base[df_base$cd_hab != "asso rhodo indé IV.2.4.",]
 
 # Remplacement noms explicites habitats
 df_base$cd_hab[df_base$cd_hab == "III.2.2."] <- "III.2.2. SFBC"
@@ -89,8 +91,12 @@ sf::st_write(rhodo_0_30, "outputs/05_points_0-30m.gpkg", append = FALSE)
 rhodo_30_40 <- rhodo[rhodo$profondeur < -30 & rhodo$profondeur > -40,]
 sf::st_write(rhodo_30_40, "outputs/05_points_30-40m.gpkg", append = FALSE)
 
-# Suppression des colonnes inutiles
-vars_to_remove <- c("id_stat","lat_dd","long_dd","cod_site","rhodo","geometry")
+# Suppression des colonnes inutiles après sauvegarde gpkg
+sf::st_write(df_base, "outputs/05_bio_plongees_pressions_env.gpkg")
+df_base_light <- df_base[,c("cd_hab","geom")]
+sf::st_write(df_base_light, "outputs/05_bio_plongees_cd_hab.gpkg")
+df_base <- sf::st_drop_geometry(df_base)
+vars_to_remove <- c("id_stat","lat_dd","long_dd","cod_site","rhodo","geom")
 df_base <- df_base %>% select(-any_of(vars_to_remove))
 
 ##############
@@ -122,7 +128,7 @@ save(df_base, file = "./outputs/05_bio_plongees_pressions_env_clean.RData")
 
 # Fichier light pour tester le script de modélisation
 set.seed(2021)
-df_base <- df_base[df_base$cd_hab %in% c("IV.2.2. DC", "IV.2.2.a. Maërl DC", "IV.2.2.b. Pralines DC"),]
+df_base <- df_base[df_base$cd_hab %in% c("IV.2.2. DC", "IV.2.2.a. Maërl DC", "IV.2.2.b. Pralines DC", "IV.2.2.b. Boxworks DC","IV.2.2.c. Peyssonnelia libres"),]
 split <- rsample::initial_split(df_base, prop = 0.001, strata = cd_hab)
 df_base <- rsample::training(split)
 save(df_base, file = "./outputs/05_bio_plongees_pressions_env_clean_light.RData")

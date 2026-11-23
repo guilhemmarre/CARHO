@@ -318,7 +318,7 @@ eval_df_rhodo$.truth <- as.factor(eval_df_rhodo$.truth)
 eval_df_rhodo$.pred_class <- as.factor(eval_df_rhodo$.pred_class)
 
 cm_rhodo <- yardstick::conf_mat(eval_df_rhodo, truth = .truth, estimate = .pred_class)
-readr::write_csv(as.data.frame(cm$table), file.path("outputs", "06_ConfusionMatrix_CV.csv"))
+readr::write_csv(as.data.frame(cm$table), file.path("outputs", "06_ConfusionMatrix_CV_rhodo.csv"))
 
 acc_rhodo <- yardstick::accuracy(eval_df_rhodo, .truth, .pred_class)
 kap_rhodo <- yardstick::kap(eval_df_rhodo, .truth, .pred_class)

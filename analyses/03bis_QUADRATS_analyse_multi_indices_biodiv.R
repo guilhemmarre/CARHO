@@ -160,3 +160,63 @@ dev.off()
 
 cor(diversite$epifaune, diversite$poissons, method = "spearman")
 cor(diversite$rhodolithes, diversite$Mvth_all, method = "spearman")
+
+
+#########################################
+### COMPILATION DE TOUTES LES DONNEES ###
+#########################################
+
+colnames(rhodolithes)[1] <- "espece"
+colnames(obs_in_situ)[3] <- "espece"
+colnames(poissons)[4] <- "espece"
+colnames(epifaune)[3] <- "espece"
+
+comMat_bio_stations <- as.data.frame(comMat_bio_stations)
+rownames(comMat_bio_stations) <- comMat_bio_stations$Station
+comMat_bio_stations$Station <- NULL
+comMat_bio_stations <- as.data.frame(t(comMat_bio_stations))
+comMat_bio_stations$espece <- rownames(comMat_bio_stations)
+comMat_bio_stations <- comMat_bio_stations[,c("espece","R_PNMCCA_01","R_PNMCCA_02","R_PNMCCA_03","R_PNMCCA_04",
+                                              "R_PNMCCA_05","R_PNMCCA_06","R_PNMCCA_07","R_PNMCCA_08")]
+rownames(comMat_bio_stations) <- NULL
+
+# On supprime les catégories qui ne sont pas des espèces
+comMat_bio_stations <- comMat_bio_stations[!(comMat_bio_stations$espece %in% c("Crevice",
+                                                                               "Sand",
+                                                                               "Rubble",
+                                                                               "Other_live",
+                                                                               "Sludge",
+                                                                               "Shadow",
+                                                                               "Unknowns",
+                                                                               "Wand")),]
+
+# Ajout de la méthode
+rhodolithes$methode <- "prelevements"
+epifaune$methode <- "prelevements"
+poissons$methode <- "ADNe"
+comMat_bio_stations$methode <- "photo"
+obs_in_situ$methode <- "observation"
+
+# On joint tout 
+obs_all <- dplyr::bind_rows(comMat_bio_stations, rhodolithes)
+obs_all <- dplyr::bind_rows(obs_all, epifaune)
+obs_all <- dplyr::bind_rows(obs_all, poissons)
+obs_all <- dplyr::bind_rows(obs_all, obs_in_situ)
+obs_all <- obs_all[,1:10]
+
+obs_all$espece <- gsub("_"," ",obs_all$espece)
+
+write.table(obs_all, "outputs/03bis_liste_especes_all_sites.csv", sep = ";", dec = ".", row.names = FALSE)
+
+# Export par station
+for (station in stations_carho$Station[2:nrow(stations_carho)]){
+  
+  obs_all_station <- obs_all[,c("espece","methode", station)]
+  obs_all_station <- obs_all_station[obs_all_station[,station] > 0,]
+  obs_all_station[,station] <- NULL
+  
+  write.table(obs_all_station, paste0("outputs/03bis_liste_especes_", station, ".csv"), sep = ";", dec = ".", row.names = FALSE)
+  
+}#eo for station
+
+

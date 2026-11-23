@@ -49,6 +49,7 @@ grille <- grille[grille$surfstat %in% c("Association a rhodolithes",
 
 # On supprime les points dans un range bathy inexploré et improbable pour la présence de rhodolithes
 grille <- grille[grille$profondeur < -30,]
+grille <- grille[grille$profondeur > -120,]
 
 # grille <- grille[sample(1:nrow(grille), 100000, replace = FALSE),]
 grille_df <- as.data.frame(grille)
